@@ -8,20 +8,20 @@ import java.awt.image.BufferedImage;
 public class rita extends Canvas implements Runnable{
     private static boolean körs;
     private int houseX, houseY;
-   private int houseVX, houseVY;
+    private int houseVX, houseVY;
 
-   private int width = 600;
-   private int height = 400;
+    private int width = 600;
+    private int height = 400;
 
-   private int treeX,treeY;
+    private int treeX,treeY;
 
-   private Thread tråd;
-   int fps = 30;
+    private Thread tråd;
+    int fps = 30;
 
-   private BufferStrategy bs;
-   //private BufferedImage bild;
+    private BufferStrategy bs;
+    //private BufferedImage bild;
 
-   public rita(){
+    public rita(){
         JFrame rityta = new JFrame("EN SUPERDUPER COOL BILD");
         this.setSize(width,height);
         rityta.add(this);
@@ -44,9 +44,9 @@ public class rita extends Canvas implements Runnable{
         }
         Graphics p = bs.getDrawGraphics();
 
-       update();
-       p.setColor(Color.white);
-       p.fillRect(0,0,width,height);
+        update();
+        p.setColor(Color.white);
+        p.fillRect(0,0,width,height);
         drawHouse(p, houseX,houseY);
 
         drawTree(p, 100, 100);
@@ -94,12 +94,12 @@ public class rita extends Canvas implements Runnable{
         bild.start();
     }
     public synchronized void start(){
-       tråd = new Thread(this);
-       tråd.start();
+        tråd = new Thread(this);
+        tråd.start();
     }
 
     public synchronized void stop(){
-    körs = false;
+        körs = false;
         try {
             tråd.join();
         } catch (InterruptedException e) {
@@ -121,7 +121,7 @@ public class rita extends Canvas implements Runnable{
             }
         }
     }
-    private  class KL implements KeyListener{
+     private  class KL implements KeyListener{
 
         @Override
         public void keyTyped(KeyEvent e) {
@@ -130,7 +130,6 @@ public class rita extends Canvas implements Runnable{
 
         @Override
         public void keyPressed(KeyEvent e) {
-            if(KeyEvent.getKeyChar()== 'a');
             treeX-= 5;
         }
 
